@@ -19,17 +19,34 @@ if (!$link) {
     exit;
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-/*
+//echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+//echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+$isbn = $_POST['isbn'];
+
+if ($result = mysqli_query($link, "SELECT * FROM genres")) {
+    printf("Select returned %d rows.", mysqli_num_rows($result));
+
+    /* free result set */
+    mysqli_free_result($result);
+}
+
+
 if (mysqli_query($link, 
-        "INSERT INTO `publications`
-                        (`isbn`,    `title`,    `numpages`,     `edition`, `published`, `created_at`) 
-                VALUES ($isbn,      $title,     $numpages,      $edition,   $published,  Time() )") 
+        "INSERT INTO genres (title) 
+                VALUES ('".$isbn."')
+                ")
+                
         === TRUE) {
         printf("<h1>Data byla úspěšně uložena do databáze.</h1>");
 }
+
+/*
+"INSERT INTO `publications`
+                (`isbn`,        `title`,    `numpages`,         `edition`,      `published`,    `created_at`) 
+                VALUES 
+        ((string)"Pokus", (string)"HOKUS", (int)"33", (int)"2", StrFTime("%d/%m/%Y", Time()), StrFTime("%d/%m/%Y", Time()) ")
 */
+
 //$sql = "INSERT INTO lidi (jmeno,prijmeni,adresa,pozice) VALUES ('$jmeno','$prijmeni','$adresa','$pozice')"; 
 //$vysledek = mysql_query($sql); 
 //echo "<h1>Data byla úspěšně uložena do databáze.</h1>"; 
