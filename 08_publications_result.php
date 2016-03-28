@@ -37,10 +37,15 @@ if (mysqli_query($link, "INSERT INTO publications
         printf("<h1>Data NEBYLA uložena do databáze.</h1>");
 }
 
-
 mysqli_close($link);
 
 ?> 
+
+<p>
+<strong>Přejete si uložit další publikaci?</strong>
+<form action="08_publications_form.php" >
+    <input type="submit" name="submit" value="Odeslat">
+</form>
 
 </body>
 </html>

@@ -8,7 +8,7 @@
 ​
 <body>
 <h1>Vložení publikace - formulář</h1>
-    <form action="08_publications_result.php" method="post" target="blank">
+    <form action="08_publications_result.php" method="post" >
         <p>
             <label for="isbn"><strong>ISBN</strong></label>
             <input name="isbn" type="text" size="50">
