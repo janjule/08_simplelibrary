@@ -8,7 +8,7 @@
 ​
 <body>
 <h1>Vložení publikace - formulář</h1>
-    <form action="" method="post" >
+    <form action="08_publications_result.php" method="post" target="blank">
         <p>
             <label for="isbn"><strong>ISBN</strong></label>
             <input name="isbn" type="text" size="50">
@@ -30,7 +30,7 @@
             <input name="published" type="date" size="20">
         </p>
         
-       <input type="submit" value="Odeslat">
+       <input type="submit" name="submit" value="Odeslat">
     </form>
 
 </body>
