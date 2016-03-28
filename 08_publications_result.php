@@ -23,15 +23,8 @@ $isbn = $_POST['isbn'];
 $title = $_POST['title'];
 $numpages = $_POST['numpages'];
 $edition = $_POST['edition'];
-$published = StrFTime("%Y%m%d",Time());
-$created_at = StrFTime("%Y%m%d %h%m%s", Time());
-
-/*
-if (mysqli_query($link, "INSERT INTO genres (title) VALUES ('".$isbn."')  ")
-        === TRUE) {
-        printf("<h1>Data byla úspěšně uložena do databáze.</h1>");
-}
-*/
+$published = $_POST['published'];
+$created_at = Date("Y-m-d H:i:s");
 
 if (mysqli_query($link, "INSERT INTO publications
                 (isbn,        title,    numpages,         edition,      published,    created_at) 
